@@ -51,11 +51,19 @@
         <Int>1</Int>
     </pref>
     <pref key="MediaTime">
-        <Long>74431</Long>
+        <Long>60198</Long>
     </pref>
     <pref key="MediaControlRate">
         <Float>1.5</Float>
     </pref>
+    <prefGroup key="IndividualPlayerVolumes">
+        <pref key="nowicka_sąd.mp4">
+            <Float>0.98</Float>
+        </pref>
+        <pref key="nowicka_abo.mp4">
+            <Float>0.0</Float>
+        </pref>
+    </prefGroup>
     <pref key="FrameSize">
         <Object class="java.awt.Dimension">1920,1020</Object>
     </pref>
@@ -102,8 +110,13 @@
     <pref key="ActiveRecognizerName">
         <String>AAM-LR Phone level audio segmentation</String>
     </pref>
+    <prefGroup key="IndividualPlayerMuteSoloSettings">
+        <pref key="nowicka_abo.mp4">
+            <String>mute</String>
+        </pref>
+    </prefGroup>
     <pref key="TimeScaleBeginTime">
-        <Long>70120</Long>
+        <Long>53410</Long>
     </pref>
     <prefList key="MultiTierViewer.HiddenTiers"/>
     <pref key="LayoutManager.MediaAreaHeight">

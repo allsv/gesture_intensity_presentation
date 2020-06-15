@@ -65,11 +65,11 @@
         <String>AAM-LR Phone level audio segmentation</String>
     </pref>
     <prefGroup key="CommentViewer.Columns">
-        <pref key="Sender">
-            <Int>0</Int>
-        </pref>
         <pref key="Modification Date">
             <Int>75</Int>
+        </pref>
+        <pref key="Sender">
+            <Int>0</Int>
         </pref>
         <pref key="Tier">
             <Int>75</Int>
@@ -80,20 +80,20 @@
         <pref key="Initials">
             <Int>75</Int>
         </pref>
-        <pref key="Start Time">
+        <pref key="Comment">
             <Int>75</Int>
         </pref>
         <pref key="End Time">
             <Int>75</Int>
         </pref>
-        <pref key="Comment">
-            <Int>75</Int>
-        </pref>
-        <pref key="Thread">
+        <pref key="Start Time">
             <Int>75</Int>
         </pref>
         <pref key="Recipient">
             <Int>0</Int>
+        </pref>
+        <pref key="Thread">
+            <Int>75</Int>
         </pref>
     </prefGroup>
     <pref key="MultiTierViewer.ActiveTierName">
