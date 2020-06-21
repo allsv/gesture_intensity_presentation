@@ -8,9 +8,9 @@ import re
 import numpy as np
 from numpy import mean
 import matplotlib.pyplot as plt
-from math import sqrt
-from scipy.stats import sem
-from scipy.stats import t
+# from math import sqrt
+# from scipy.stats import sem
+# from scipy.stats import t
 
 
 def list_tiers():
@@ -83,11 +83,57 @@ def count_gestures(lines, type):
     return a_counter, b_counter, m_counter, d_counter
 
 
-for file in list_tiers():
-    for key in file:
-        print(key)
-        print("Wszystkie gesty:", file[key][0])
-        print("Uderzenia:", file[key][1])
-        print("Gesty metaforyczne:", file[key][2])
-        print("Gesty wskazujące:", file[key][3])
-        print("\n")
+def print_charts():
+    abo_beat = []
+    abo_meta = []
+    abo_deic = []
+
+    sad_beat = []
+    sad_meta = []
+    sad_deic = []
+
+    for file in list_tiers():
+        for key in file:
+            if key.endswith("ABO"):
+                abo_beat.append(file[key][1])
+                abo_meta.append(file[key][2])
+                abo_deic.append(file[key][3])
+            elif key.endswith("SĄD"):
+                sad_beat.append(file[key][1])
+                sad_meta.append(file[key][2])
+                sad_deic.append(file[key][3])
+
+    print(abo_beat, abo_meta, abo_deic)
+    print(sad_beat, sad_meta, sad_deic)
+
+    abo_means = [mean(abo_beat), mean(abo_meta), mean(abo_deic)]
+    sad_means = [mean(sad_beat), mean(sad_meta), mean(sad_deic)]
+
+    groups = ["uderzenia", "gesty metaforyczne", "gesty wskazujące"]
+    n_groups = len(groups)
+
+    # create bar chart
+    fig, ax = plt.subplots()
+    index = np.arange(n_groups)
+    bar_width = 0.3
+    opacity = 0.8
+
+    plt.bar(index, abo_means, bar_width,
+            label='Debata o aborcji', color=(0.5, 0.1, 0.1, opacity))
+    plt.bar(index + bar_width, sad_means, bar_width,
+            label='Debata o sądach', color=(0.4, 0.2, 0.7, opacity))
+
+    plt.xlabel('Typ gestu')
+    plt.ylabel('Średnia liczba gestów')
+    plt.title('Średnia liczba gestów w debacie wg typu gestu')
+    plt.xticks(index + bar_width/2, groups)
+    plt.legend()
+
+    plt.tight_layout()
+    barchart_output_dir = os.path.join(".", "output_plots",
+                                       "type_bar_chart.png")
+    plt.savefig(barchart_output_dir)
+    plt.show()
+
+
+print_charts()
