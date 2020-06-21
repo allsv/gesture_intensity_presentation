@@ -112,7 +112,7 @@ def plot_tiers():
     plt.xlabel('Osoba')
     plt.ylabel('Liczba gestów')
     plt.title('Liczba gestów w debacie wg osoby')
-    plt.xticks(index + bar_width, last_names)
+    plt.xticks(index + bar_width/2, last_names)
     plt.legend()
 
     plt.tight_layout()
